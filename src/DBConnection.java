@@ -1,4 +1,5 @@
 import java.sql.*;
+
 public class DBConnection 
 {
     private Connection con;
@@ -6,6 +7,7 @@ public class DBConnection
     private String Username="root";
     private String Password="";
     private static DBConnection Instance;
+    
     private DBConnection()
     {
         try

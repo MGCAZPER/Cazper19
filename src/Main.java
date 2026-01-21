@@ -5,6 +5,7 @@ public class Main {
             DBConnection dbcon =DBConnection.getInstance();
             Connection con=dbcon.GetConnection();
             con=DBConnection.getInstance().GetConnection();
+            
         }catch(Exception e)
         {
             System.out.println(e);

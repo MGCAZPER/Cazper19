@@ -127,7 +127,7 @@ Connection con;
             System.out.println(e);
         }
     }//GEN-LAST:event_btnLogActionPerformed
-
+ 
     private void RstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RstActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_RstActionPerformed
