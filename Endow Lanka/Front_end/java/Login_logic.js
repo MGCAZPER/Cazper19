@@ -1,0 +1,2 @@
+alert('Are you sure you want to proceed with login?');
+

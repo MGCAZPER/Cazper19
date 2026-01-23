@@ -1,0 +1,173 @@
+
+/* ================= THEME VARIABLES ================= */
+:root {
+    --bg: #0b0b0b;
+    --card: #111;
+    --text: #ffffff;
+    --muted: #aaaaaa;
+    --gold: #d4af37;
+    --input-bg: #ffffff;
+}
+
+.light-mode {
+    --bg: #f4f4f4;
+    --card: #ffffff;
+    --text: #111;
+    --muted: #555;
+    --gold: #b8962e;
+    --input-bg: #ffffff;
+}
+
+/* ================= GLOBAL ================= */
+body {
+    height: 100vh;
+    background: var(--bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', system-ui;
+    transition: 0.4s;
+}
+
+/* ================= CARD ================= */
+.card {
+    width: 450px;
+    background: var(--card);
+    border-radius: 20px;
+    padding: 38px;
+    box-shadow: 0 35px 80px rgba(0,0,0,0.7);
+    border: 1px solid rgba(212,175,55,0.4);
+    color: var(--text);
+    position: relative;
+    animation: enter 0.9s ease;
+}
+
+@keyframes enter {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ================= TOGGLE ================= */
+.toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    color: var(--gold);
+    font-size: 14px;
+    border: 1px solid var(--gold);
+    padding: 6px 12px;
+    border-radius: 20px;
+}
+
+/* ================= BRAND ================= */
+.brand {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--gold);
+    letter-spacing: 2px;
+}
+
+.subtitle {
+    text-align: center;
+    color: var(--muted);
+    margin-bottom: 20px;
+}
+
+/* ================= ROBOT ================= */
+.robot {
+    width: 60px;
+    height: 80px;
+    margin: 0 auto 20px;
+    position: relative;
+}
+
+.head {
+    width: 60px;
+    height: 45px;
+    background: var(--gold);
+    border-radius: 8px;
+    position: relative;
+    animation: float 2s ease-in-out infinite;
+}
+
+.eye {
+    width: 8px;
+    height: 8px;
+    background: #000;
+    border-radius: 50%;
+    position: absolute;
+    top: 18px;
+}
+
+.eye.left { left: 15px; }
+.eye.right { right: 15px; }
+
+.body {
+    width: 40px;
+    height: 30px;
+    background: var(--gold);
+    margin: 5px auto 0;
+    border-radius: 6px;
+}
+
+@keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+
+/* ================= FORM ================= */
+label {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+input, select {
+    background: var(--input-bg) !important;
+    border-radius: 10px !important;
+    border: none !important;
+    padding: 10px !important;
+    transition: 0.3s;
+}
+
+/* GOLD SCAN GLOW */
+input:focus, select:focus {
+    outline: none !important;
+    box-shadow:
+        0 0 0 2px var(--card),
+        0 0 0 4px var(--gold),
+        0 0 25px rgba(212,175,55,0.4);
+    transform: scale(1.02);
+}
+
+/* ================= BUTTON ================= */
+.btn-main {
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-weight: 800;
+    letter-spacing: 1px;
+    border-radius: 14px;
+    padding: 12px;
+    transition: 0.4s;
+}
+
+.btn-main:hover {
+    background: var(--gold);
+    color: #000;
+    box-shadow: 0 20px 45px rgba(212,175,55,0.45);
+    transform: translateY(-3px);
+}
+
+/* ================= SHAKE ================= */
+.shake {
+    animation: shake 0.4s;
+}
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-6px); }
+    50% { transform: translateX(6px); }
+    75% { transform: translateX(-6px); }
+    100% { transform: translateX(0); }
+}

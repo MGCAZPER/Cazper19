@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        div
+        {
+            align-items: center;
+            height: 1000px;
+            width: 1000px;
+            border-radius:1000px;
+            background-color: blue;
+            background-image: url("../DIP.25.1/samurai-pictures-e5u1z5u6h3407ln7.jpg");
+            
+            
+        }
+    
+    </style>
+
+</head>
+<body>
+    <div id="demo"></div>
+     <button type="button" id="ref"> Refresh</button>
+    <Script src="../DIP.25.1/lib/jquery.js"></Script>
+    <script>
+        $(function(){
+            function loop(){
+                $("#ref").click(function(){
+                $("#demo").slideToggle(2000,loop);
+                });
+            }
+            loop();
+        });
+
+    </script>
+
+    
+</body>
+</html>

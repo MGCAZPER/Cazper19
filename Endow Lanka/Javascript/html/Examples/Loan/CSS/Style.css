@@ -1,0 +1,129 @@
+/* ===== Global Reset ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ===== Page Background ===== */
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, rgb(174, 129, 6),rgb(196, 7, 7));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ===== Form Card ===== */
+form {
+    background: #ffffff;
+    width: 420px;
+    padding: 35px 40px;
+    border-radius: 12px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* ===== Headings ===== */
+form h1 {
+    font-size: 22px;
+    color: black;
+    margin-bottom: 8px;
+}
+
+form p {
+    font-size: 12px;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+/* ===== Form Groups ===== */
+form div {
+    text-align: left;
+    margin-bottom: 18px;
+}
+
+/* ===== Labels ===== */
+label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 6px;
+}
+
+/* ===== Inputs & Select ===== */
+input[type="text"],
+select {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    transition: 0.3s ease;
+}
+
+/* ===== Focus Effect ===== */
+input:focus,
+select:focus {
+    outline: none;
+    border-color: #a2a207;
+    box-shadow: 0 0 0 2px rgba(218, 222, 10, 0.2);
+}
+
+/* ===== Buttons Container ===== */
+form div:last-child {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+/* ===== Buttons ===== */
+button {
+    width: 100%;
+    padding: 11px;
+    border-radius: 6px;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+/* Submit Button */
+#cong {
+    background: #a2a207;
+    color: #ffffff;
+    
+}
+
+#cong:hover {
+    background: #a2a207;
+}
+
+/* Clear Button */
+#clear {
+    background: #eeeeee;
+    color: #333;
+}
+
+#clear:hover {
+    background: #dcdcdc;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 480px) {
+    form {
+        width: 90%;
+        padding: 30px;
+    }
+}
+/*h2 fonts*/
+#result p {
+    font-size: 16px;
+    color: black;
+
+}
+

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Endow Lanka | Dashboard</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link href="/Front_end/AI/CSS/Dash.css" rel="stylesheet">
+
+<style>
+
+</style>
+</head>
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar">
+    <div style="text-align:center; margin-bottom:30px; font-weight:900; color:var(--gold); font-size:25px;">Endow Lanka</div>
+    <a href="#">Dashboard</a>
+    <a href="#">Users</a>
+    <a href="#">Revenue</a>
+    <a href="#">Settings</a>
+    <a href="#">Reports</a>
+    <a href="#">Support</a>
+    <a href="#">Logout</a>
+</div>
+
+<!-- Main content -->
+<div class="main">
+    <div class="toggle" id="modeToggle">☀ / 🌙</div>
+
+    <!-- KPI Cards -->
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card-dashboard text-center">
+                <div class="kpi-value" id="kpi-users">0</div>
+                <div class="kpi-label">Active Users</div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card-dashboard text-center">
+                <div class="kpi-value" id="kpi-revenue">$0</div>
+                <div class="kpi-label">Revenue</div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card-dashboard text-center">
+                <div class="kpi-value" id="kpi-tasks">0</div>
+                <div class="kpi-label">Tasks Completed</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Charts -->
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <div class="card-dashboard">
+                <canvas id="lineChart"></canvas>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card-dashboard">
+                <canvas id="pieChart"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Ghost robot -->
+<div class="ghost-robot" id="ghostRobot">
+    <div class="ghost-body">
+        <div class="ghost-eyes">
+            <div class="ghost-eye"></div>
+            <div class="ghost-eye"></div>
+        </div>
+        <div class="ghost-smile"></div>
+    </div>
+</div>
+
+<!-- Live chat -->
+<div class="live-chat" onclick="alert('Live chat clicked! 🚀')">💬 Chat</div>
+
+<script>
+// Dark/Light toggle
+$("#modeToggle").click(()=>{$("body").toggleClass("light-mode");});
+
+// KPI animation
+function animateKPI(id,end,duration){
+    let start=0;
+    let stepTime=Math.abs(Math.floor(duration/end));
+    let obj=document.getElementById(id);
+    let timer=setInterval(function(){
+        start++;
+        if(id=="kpi-revenue") obj.innerHTML="$"+(start*10);
+        else obj.innerHTML=start;
+        if(start>=end) clearInterval(timer);
+    },stepTime);
+}
+animateKPI("kpi-users",125,2000);
+animateKPI("kpi-revenue",850,2000);
+animateKPI("kpi-tasks",97,2000);
+
+// Charts
+const lineCtx=document.getElementById('lineChart').getContext('2d');
+const lineChart=new Chart(lineCtx,{
+    type:'line',
+    data:{
+        labels:['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],
+        datasets:[{label:'Revenue', data:[120,150,170,160,180,200,220], borderColor:'#d4af37', backgroundColor:'rgba(212,175,55,0.2)', tension:0.3, fill:true}]
+    },
+    options:{responsive:true,plugins:{legend:{labels:{color:'#d4af37'}}},scales:{x:{ticks:{color:'#fff'}},y:{ticks:{color:'#fff'}}}}
+});
+const pieCtx=document.getElementById('pieChart').getContext('2d');
+const pieChart=new Chart(pieCtx,{
+    type:'pie',
+    data:{labels:['Admins','Managers','Staff'],datasets:[{label:'Users', data:[5,12,20], backgroundColor:['#d4af37','#aaa','#555']}]},
+    options:{plugins:{legend:{labels:{color:'#fff'}}}}
+});
+
+// Ghost movement (smooth, opposite)
+const ghost = document.getElementById('ghostRobot');
+document.addEventListener('mousemove', e=>{
+    const moveX = (window.innerWidth/2 - e.clientX)/15;
+    const moveY = (window.innerHeight/2 - e.clientY)/15;
+    ghost.style.transform = `translate(${moveX}px, ${moveY}px)`;
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {margin: 10px;}
+    </style>
+    <link rel="stylesheet" href="../DIP.25.1/CSS/Style/Front.css">
+</head>
+<body>
+    <form>
+
+        <div style="margin-bottom: 5px"><h1>SRI LAND LANKA(PVT.LTD) </h1>
+        <P>Make it Feel Like Home</P>
+        </div>
+        <hr>
+        <div>
+            <label for="cname">Customer Name: </label>
+            <input type="text" id="cname"name="cname" ></input>
+        </div>
+        <div>
+            <label for="billTotal">Bill Total</label>
+            <input type="number" id="billamount" name="billTotal" >
+        </div>
+        <div>
+            <label for="serviceCharge">Service Charge</label>
+            <input type="number" id="serviceCharge" name="serviceCharge">
+        </div>
+        <div>
+            <label for="tax">Discount</label>
+            <input type="number" id="discount" name="discount">
+        </div>
+        <div>
+            <button type="button" id="calculateBtn">Calculate Total Bill</button>
+            <button type="reset" id="reset">Reset</button>
+            <br><br>
+            <hr>
+            
+
+        </div>
+    
+        <p>Best place to make your day Good!</p>
+
+    </form>
+    <div id="Summary">
+        <h2>Summary</h2>
+        <br>
+        <label for="cName2"> Customer Name:</label>
+        <input type="text" id="cName2" name="cName2" readonly>
+        <br>
+        <label for="netTotal">Net Total:</label>
+        <input type="number" id="netTotal" name="netTotal" readonly>
+        <button type="button" id="backBtn">Back</button>
+    </div>
+
+
+
+    <script src="../DIP.25.1/lib/jquery.js"></script>
+    <script src="../DIP.25.1/Scripts/BillCal.js"></script>
+</body>
+</html>

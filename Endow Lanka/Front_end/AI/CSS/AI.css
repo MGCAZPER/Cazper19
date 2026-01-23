@@ -1,0 +1,30 @@
+body{
+    height:100vh;
+    background:linear-gradient(135deg,#020617,#0f172a);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:'Segoe UI';
+}
+.card{
+    width:380px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(20px);
+    border-radius:18px;
+    padding:35px;
+    color:#fff;
+    box-shadow:0 30px 60px rgba(0,0,0,0.6);
+    display:none;
+}
+input{
+    background:rgba(255,255,255,0.15);
+    border:none;
+    color:#fff;
+}
+input:focus{
+    box-shadow:0 0 10px #38bdf8;
+}
+.btn-main{
+    background:linear-gradient(135deg,#38bdf8,#0ea5e9);
+    border:none;
+}
