@@ -1,11 +1,11 @@
 <?php
 $student_list=[]; // Array to hold student objects
 // Adding associative arrays into index arrays
-$student_list[]=['name'=>"Kaveesha",'city'=> 'horopathana','gpa'=>3.75];
-$student_list[]=['name'=>"Nadun",'city'=> 'Kandy','gpa'=>3.5];
-$student_list[]=['name'=>"Bean",'city'=> 'medawacchiya','gpa'=>3.99];
-$student_list[]=['name'=>"Manjula Sir",'city'=> 'Kandy','gpa'=>2.75];
-$student_list[]=['name'=>"sasith",'city'=> 'Kandy','gpa'=>3];
+$student_list[]=['name'=>"Kaveesha",'city'=> 'Horopathana','gpa'=>4];
+$student_list[]=['name'=>"Nadun",'city'=> 'Kurunegala','gpa'=>3.5];
+$student_list[]=['name'=>"Bean",'city'=> 'Medawacchiya','gpa'=>3.99];
+$student_list[]=['name'=>"Manjula Sir",'city'=> 'Galagedara','gpa'=>3.75];
+$student_list[]=['name'=>"Sasith",'city'=> 'Samanalawewa','gpa'=>3];
 ?>
 
 <!DOCTYPE html>
@@ -34,9 +34,16 @@ $student_list[]=['name'=>"sasith",'city'=> 'Kandy','gpa'=>3];
 				<div class="event-card">
 					<div class="card-body">
 						<h5 class="card-title"><?php echo $student['name']; ?></h5>
-						<p class="card-text"><?php echo $student['city']; ?></p>
+						<p class="card-text">City: <?php echo $student['city']; ?></p>
 						<p class="card-text"><small class="text-muted">GPA: <?php echo $student['gpa']; ?></small></p>
-						<span class="badge bg-success">Distinction</span>
+						<?php if($student['gpa']<3.5){ ?>
+							<span class="badge bg-danger">Fail</span>
+						<?php } else if($student['gpa']>=3.5 && $student['gpa']<3.75){ ?>
+							<span class="badge bg-primary">Merit</span>
+						<?php } else { ?>
+							<span class="badge bg-success">Distinction</span>
+						<?php } ?>
+						<a href="student.php?n=<?php echo $student['name']; ?>&c=<?php echo $student['city']; ?>&g=<?php echo $student['gpa']; ?>" class="btn btn-outline-warning mt-3">View Details</a>
 					</div>
 				</div>
 			</div>	
