@@ -1,0 +1,65 @@
+<?php
+    include_once 'dbcon.php';
+    $sql="SELECT*From student";
+    $result=mysqli_query($con,$sql);
+    $row_count = mysqli_num_rows($result);
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Students</title>
+    <link rel="stylesheet" href="assets/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/admin.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="dashboard.html">Admin Panel</a>
+    </nav>
+    <div class="content">
+        <div class="sidebar">
+            <h5 class="text-center">Menu</h5>
+            <a href="dashboard.php">Dashboard</a>
+            <a href="students.php">Manage Students</a>
+        </div>
+        <div class="main">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h2 class="card-title">Manage Students</h2>
+                    <a href="create_student.php" class="btn btn-success mb-3">Create New Student</a>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>City</th>
+                                <th>Course</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php for($i=0;$i<$row_count;$i++){
+                                $row =mysqli_fetch_assoc($result);
+                            ?>
+                            <tr>
+                                <td>XXXXX</td>
+                                <td>XXXXX</td>
+                                <td>0.00</td>
+                                <td>
+                                    <a href="" class="btn btn-sm btn-primary">Edit</a>
+                                    <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                                </td>
+                            </tr>
+                            <?php } ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2025 Event Portal Admin</p>
+    </footer>
+</body>
+</html>
