@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard | Faucet</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/Signup.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+
+
+<div class="d-flex app-layout">
+    <aside class="app-sidebar p-3">
+        <div class="sidebar-brand mb-4">
+            <div class="brand-icon">FAUGET</div>
+            <div class="small text-muted">Inventory Manager</div>
+        </div>
+        <ul class="nav flex-column">
+            <li class="nav-item"><a class="nav-link text-muted active" href="#">Dashboard</a></li>
+            <li class="nav-item"><a class="nav-link text-muted" href="#production">Production</a></li>
+            <li class="nav-item"><a id="navUsers" class="nav-link text-muted d-none" href="#users">Users</a></li>
+            <li class="nav-item"><a class="nav-link text-muted" href="#reports">Reports</a></li>
+        </ul>
+    </aside>
+
+    <div class="flex-fill">
+        <nav class="topbar navbar navbar-dark bg-transparent px-4">
+            <div class="d-flex align-items-center">
+                <h5 class="mb-0 me-3">FAUGET Inventory</h5>
+                <small id="userRole" class="text-muted"></small>
+            </div>
+            <div>
+                <button id="btnLogout" class="btn btn-sm btn-light">Logout</button>
+            </div>
+        </nav>
+
+        <main class="container-fluid py-4">
+            <div class="row mb-3">
+                <div class="col-12">
+                    <div class="d-flex gap-3">
+                        <div class="stat-card p-3 bg-dark rounded text-white">
+                            <div class="small text-muted">Total Produced</div>
+                            <div id="statTotal" class="h4">0</div>
+                        </div>
+                        <div class="stat-card p-3 bg-dark rounded text-white">
+                            <div class="small text-muted">In Progress</div>
+                            <div id="statInProgress" class="h4">0</div>
+                        </div>
+                        <div class="stat-card p-3 bg-dark rounded text-white">
+                            <div class="small text-muted">Completed</div>
+                            <div id="statCompleted" class="h4">0</div>
+                        </div>
+                        <div class="stat-card p-3 bg-dark rounded text-white">
+                            <div class="small text-muted">Pending QC</div>
+                            <div id="statPending" class="h4">0</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="card p-3 mb-4">
+                        <h6>Production by Stage</h6>
+                        <canvas id="barChart" height="160"></canvas>
+                    </div>
+
+                    <div class="card p-3 mb-4">
+                        <h6>Production Over Time</h6>
+                        <canvas id="lineChart" height="160"></canvas>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="card p-3 mb-4">
+                        <h6>Stage Share</h6>
+                        <canvas id="doughnutChart" height="220"></canvas>
+                    </div>
+
+                    <div id="manageUsersPanel" class="card mb-4 p-3 d-none">
+                        <h5>Manage Users (CEO)</h5>
+                        <form id="createUserForm" class="mb-3">
+                            <input id="newName" class="form-control mb-2" placeholder="Full name" required>
+                            <input id="newEmail" class="form-control mb-2" placeholder="email@company.com" required>
+                            <input id="newPassword" class="form-control mb-2" placeholder="password" required>
+                            <select id="newRole" class="form-select mb-2">
+                                <option value="CEO">CEO</option>
+                                <option value="Team">Team</option>
+                                <option value="Officer">Officer</option>
+                            </select>
+                            <button class="btn btn-signup w-100" type="submit">Create user</button>
+                        </form>
+                        <div>
+                            <h6 class="small text-muted">Existing users</h6>
+                            <ul id="userList" class="list-group list-group-flush"></ul>
+                        </div>
+                    </div>
+                    <div id="teamPanel" class="card mb-4 p-3 d-none">
+                        <h5>Add production (Team)</h5>
+                        <form id="addForm">
+                            <div class="mb-2">
+                                <input id="product" class="form-control" placeholder="Product name" required>
+                            </div>
+                            <div class="mb-2">
+                                <select id="stage" class="form-select">
+                                    <option value="Stage 1">Stage 1</option>
+                                    <option value="Stage 2">Stage 2</option>
+                                    <option value="Stage 3">Stage 3</option>
+                                </select>
+                            </div>
+                            <div class="mb-2">
+                                <input id="quantity" type="number" min="1" class="form-control" placeholder="Quantity" required>
+                            </div>
+                            <button class="btn btn-success-theme w-100" type="submit">Add</button>
+                        </form>
+                    </div>
+
+                    <div id="officerPanel" class="card mb-4 p-3 d-none">
+                        <h5>Incoming Production (Officer)</h5>
+                        <ul id="incomingList" class="list-group list-group-flush"></ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card p-3">
+                        <h6>Recent Production Entries</h6>
+                        <div class="table-responsive">
+                            <table id="recentTable" class="table table-dark table-striped table-sm mb-0">
+                                <thead>
+                                    <tr><th>Date</th><th>Product</th><th>Stage</th><th>Quantity</th><th>Status</th></tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+</div>
+
+<script src="../Js/dashboard.js"></script>
+</body>
+</html>
