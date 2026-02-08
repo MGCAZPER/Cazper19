@@ -12,5 +12,5 @@
             header('location:create_student.php'); //Redirect User to dashboard
     }else{
         header('location:students.php'); //Redirect User to form page
-    }
+    }   
 ?>
