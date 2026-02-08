@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Signup | Faucet</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/Signup.css">
+
+</head>
+<body>
+
+<div class="container py-5">
+    <div class="row auth-card">
+
+        <!-- LEFT FORM -->
+        <div class="col-lg-5 left-panel p-5 text-white">
+            <div class="logo mb-3">
+                <span class="brand-icon">FAUGET</span>
+            </div>
+
+            <h1 class="mb-1">Create an account</h1>
+            <p class="text-muted mb-4 small">Let's get started!</p>
+
+            <form id="signupForm">
+                <div class="mb-3">
+                    <label class="form-label" for="Name">Name</label>
+                    <input type="text" class="form-control rounded-pill" id="Name" name="Name" placeholder="Olivia Wilson" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="Email">Email</label>
+                    <input type="email" class="form-control rounded-pill" id="Email" name="Email" placeholder="hello@reallygreatsite.com" required>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label" for="password">Password</label>
+                    <div class="input-group rounded-pill overflow-hidden">
+                        <input type="password" id="password" name="password" class="form-control border-0" placeholder="●●●●●●●●" required>
+                        <button class="btn btn-icon" type="button" onclick="togglePassword()">
+                            <i class="bi bi-eye" id="toggleIcon"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary btn-signup w-100 mb-3" type="submit" id="btnSign_up">Sign up</button>
+
+                <button type="button" class="btn btn-white w-100 mb-3">Continue with email</button>
+
+                <p class="text-center text-muted small mb-0">Already have an account? <a href="login.html">Log in</a></p>
+            </form>
+        </div>
+
+        <!-- RIGHT IMAGE -->
+        <div class="col-lg-7 right-panel d-none d-lg-flex align-items-center justify-content-center">
+            <!-- Replace this image with your preferred illustration if needed -->
+            <img src="https://images.unsplash.com/photo-1602524813860-8e5b7c8b4f7b?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=00000000000000000000000000000000" alt="3D Illustration">
+        </div>
+
+    </div>
+</div>
+
+<script>
+    function togglePassword() {
+        const pwd = document.getElementById("password");
+        const icon = document.getElementById("toggleIcon");
+        if (pwd.type === "password") {
+            pwd.type = "text";
+            icon.classList.remove("bi-eye");
+            icon.classList.add("bi-eye-slash");
+        } else {
+            pwd.type = "password";
+            icon.classList.remove("bi-eye-slash");
+            icon.classList.add("bi-eye");
+        }
+    }
+</script>
+<script src="../Js/Signup.js"></script>
+</body>
+</html>
